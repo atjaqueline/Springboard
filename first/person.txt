@@ -1,0 +1,21 @@
+It allows users to view the reference manuals of a command
+
+-l flag lists files in a list format containing more details
+-a flag shows all files and folders including hidden ones
+
+option left/ right
+
+control e
+control a
+
+option delete
+
+A shell is a user interface for access to an operating system's services. The terminal is a program that opens a graphical window and lets you interact with the shell
+
+An absolute path always contains the root element and the complete directory list required to locate the file
+
+ A relative path starts at the current location
+
+ Flags are a way to set options and pass in arguments to the commands you run examples -a -l -r
+
+when you combine -r and -f flags, you recursively and forcibly remove a directory without prompting for confirmation
