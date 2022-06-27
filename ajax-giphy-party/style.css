@@ -1,0 +1,43 @@
+body{
+    background-color: beige;
+}
+
+form{
+    display: flex;
+    padding: 30px;
+    margin: 50px auto;
+    justify-content: center;
+}
+
+.bttn {
+    padding: 15px;
+    font-size: 1.5em;
+    border-radius: 5%;
+    color: white;
+}
+
+.remove {
+    background-color: red;
+    width: 25%;
+}
+
+.submit{
+    background-color:green;
+    width: 25%;
+}
+
+#inputform {
+    width: 50%;
+}
+
+.gif-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 30px;
+    justify-content: center;
+}
+
+img {
+    max-width: 200px;
+}
