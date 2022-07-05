@@ -1,0 +1,26 @@
+/* some colors you may find useful:
+  #115ff4
+  #060ce9
+  #28a200
+  #8d2ab5
+  #74119c
+*/
+
+#jeopardy {
+  background-color: bisque;
+}
+
+th, td {
+  border: 1px solid black;
+  width: 12em;
+  padding: 1em;
+}
+
+td {
+  height: 9em;
+}
+
+td, th {
+  display: table-cell;
+  vertical-align: inherit;
+}
