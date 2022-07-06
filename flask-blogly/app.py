@@ -1,6 +1,6 @@
 """Blogly application."""
 
-from flask import Flask, request, render_template,  redirect, flash, session
+from flask import Flask, request, render_template,  redirect
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, User
 
@@ -8,30 +8,29 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_ECHO'] = True
-app.config['SECRET_KEY'] = "123abc"
-app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
-debug = DebugToolbarExtension(app)
+app.config['SECRET_KEY'] = '123abc'
+
+toolbar = DebugToolbarExtension(app)
 
 connect_db(app)
 db.create_all()
 
 @app.route('/')
-def redirect_list():
+def root():
     return redirect('/users')
 
 @app.route('/users')
 def list_users():
     """Shows list of all users in db"""
-    users = User.query.all()
-    return render_template('list.html', users=users)
+    users = User.query.order_by(User.last_name, User.first_name).all()
+    return render_template('index.html', users=users)
 
 
 @app.route('/users/new', methods=["GET"])
 def users_add_form():
     """Show a form to create a new user"""
 
-    return render_template('add_user.html')
+    return render_template('new.html')
 
 @app.route("/users/new", methods=["POST"])
 def users_add():
@@ -53,7 +52,7 @@ def users_show(user_id):
     """Show a page with info on a specific user"""
 
     user = User.query.get_or_404(user_id)
-    return render_template('users/user_details.html', user=user)
+    return render_template('show.html', user=user)
 
 
 @app.route('/users/<int:user_id>/edit')
@@ -61,7 +60,7 @@ def users_edit(user_id):
     """Show a form to edit an existing user"""
 
     user = User.query.get_or_404(user_id)
-    return render_template('users/edit_user.html', user=user)
+    return render_template('edit.html', user=user)
 
 
 @app.route('/users/<int:user_id>/edit', methods=["POST"])

@@ -2,7 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-
+DEFAULT_IMAGE_URL = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
 
 # MODELS
 
@@ -20,8 +20,7 @@ class User(db.Model):
     last_name = db.Column(db.Text,
                      nullable=False)
 
-    image_url = db.Column(db.Text, 
-                        nullable=False)
+    image_url = db.Column(db.Text, nullable=False, default=DEFAULT_IMAGE_URL)
 
     @property
     def full_name(self):
