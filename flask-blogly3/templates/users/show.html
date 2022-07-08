@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Create a User{% endblock %}}
+
+{% block content %}
+   <img src="{{ user.image_url }}"></img>
+    <h1>{{ user.full_name }}</h1>
+    <form>
+      <button class="btn btn-primary" formaction="{{ user.id }}/edit"
+      formmethod="GET">Edit</button>
+      <button class="btn btn-danger" formaction="{{ user.id }}/delete"
+      formmethod="POST">Delete</button>
+    </form>
+
+    <div class="posts">
+      <h2>Posts</h2>
+      <ul>
+        {% for post in user.posts %}
+        <li>
+          <a href="/posts/{{ post.id}}">{{ post.title }}</a>
+          <p>{{ post.friendly_date }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+      <p><a href="/users/{{ user.id }}/posts/new" class="btn btn-primary">Add Post</a></p>
+    </div>
+
+    
+    {% endblock %}
