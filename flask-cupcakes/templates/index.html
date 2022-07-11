@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cupcakes</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+
+<h1>See all the cupcakes!</h1>
+
+  <ul id="cupcakes-list" class="container d-flex flex-row mb-3">
+  </ul>
+
+<h2>Add a new cupcake!</h2>
+
+<form id="new-cupcake-form">
+  <div>
+    <label for="form-flavor">Flavor: </label>
+    <input class="form-control" name="flavor" id="form-flavor">
+  </div>
+
+  <div>
+    <label for="form-size">Size: </label>
+    <input class="form-control" name="size" id="form-size">
+  </div>
+
+  <div>
+    <label for="form-rating">Rating: </label>
+    <input class="form-control" type="number" name="rating" id="form-rating">
+  </div>
+
+  <div>
+    <label for="form-image">Image: </label>
+    <input class="form-control" name="image" id="form-image">
+  </div>
+
+  <button>Add!</button>
+</form>
+
+<script src="https://unpkg.com/jquery"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+<script src="/static/cupcakes.js"></script>
+
+</body>
+</html>
