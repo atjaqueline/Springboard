@@ -5,3 +5,8 @@ The STATION table is described as follows: */
 
 SELECT ROUND(SQRT(POW(MAX(LAT_N)-MIN(LAT_N),2) + POW(MAX(LONG_W)-MIN(LONG_W),2)), 4) 
 FROM station;
+
+
+SELECT Round(st.lat_n, 4)
+FROM station AS st
+WHERE (SELECT Count(lat_n) FROM station WHERE lat_n < st.lat_n) = (SELECT Count(lat_n) FROM station WHERE lat_n > st.lat_n);
